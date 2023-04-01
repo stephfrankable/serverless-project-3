@@ -9,10 +9,10 @@ const App = () => {
 
   const [coins, updateCoins] = useState([])
 
-  async function fetchCoins() {
+  const fetchCoins = async() => {
     const data = await API.get('cryptoapi', '/coins')
     updateCoins(data.coins)
-  }
+}
 
   useEffect(() => {
     fetchCoins()
