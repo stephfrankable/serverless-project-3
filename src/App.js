@@ -7,10 +7,17 @@ import './App.css';
 
 const App = () => {
 
-  const [coins, updateCoins] = useState([])
+  const [coins, updateCoins] = useState([]);
+
+  const [input, updateInput] = useState({ limit: 5, start: 0 });
+
+  function updateInputValues(type, value) {
+    updateInput({ ...input, [type]: value });
+  }
 
   const fetchCoins = async() => {
-    const data = await API.get('cryptoapi', '/coins')
+    const { limit, start } = input;
+    const data = await API.get('cryptoapi', '/coins?limit=${limit}&start=${start}');
     updateCoins(data.coins)
 }
 
