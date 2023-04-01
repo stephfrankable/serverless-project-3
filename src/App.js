@@ -39,6 +39,7 @@ const App = () => {
         onChange={e => updateInputValues('limit', e.target.value)}
         placeholder="limit"
       />
+      <hr/>
       <button
         onClick={fetchCoins}>
         Fetch Coins  

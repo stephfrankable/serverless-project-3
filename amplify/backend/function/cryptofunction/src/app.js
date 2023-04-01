@@ -43,6 +43,16 @@ app.get('/coins', function(req, res) {
     .catch(err => res.json({ error: err }))
 })
 
+app.get('/born', function(req,res){
+  let bornUrl = 'https://api.github.com/users/stephfrankable'
+
+  axios.get(bornUrl)
+    .then(response => {
+      res.json({ born: response.data })
+    })
+    .catch(err => res.json({ error: err }))
+})
+
 /**********************
  * Example get method *
  **********************/
